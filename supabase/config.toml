@@ -1,0 +1,9 @@
+project_id = "energy-protector"
+
+# daily-sync is called by pg_cron with x-cron-secret, so the gateway JWT check is off;
+# the function authorizes cron and admin callers itself.
+[functions.daily-sync]
+verify_jwt = false
+
+[functions.add-source]
+verify_jwt = true

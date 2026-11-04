@@ -1,0 +1,128 @@
+{
+  "app": {
+    "name": "Handpicked 選片管理",
+    "tagline": "幫家人挑好片，每天自動更新到 YouTube 播放清單"
+  },
+  "nav": {
+    "sources": "來源",
+    "filters": "篩選規則",
+    "runs": "執行紀錄"
+  },
+  "actions": {
+    "signIn": "使用 Google 登入",
+    "signOut": "登出",
+    "runNow": "立即更新播放清單",
+    "save": "儲存",
+    "reset": "還原",
+    "add": "新增",
+    "delete": "刪除",
+    "cancel": "取消",
+    "removeKeyword": "移除「{{keyword}}」",
+    "openOnYouTube": "在 YouTube 開啟",
+    "language": "切換語言"
+  },
+  "auth": {
+    "title": "管理者登入",
+    "description": "只有被加入管理名單的 Google 帳號可以使用。",
+    "notAdminTitle": "這個帳號沒有權限",
+    "notAdminBody": "{{email}} 不在管理名單裡。請用 CLI 執行 add-admin 加入，或換一個帳號登入。",
+    "error": "登入失敗：{{message}}"
+  },
+  "sources": {
+    "title": "來源",
+    "description": "只有這裡啟用的頻道和劇集會被選進播放清單。",
+    "addTitle": "新增來源",
+    "addHint": "貼上頻道、影片或播放清單連結。影片連結會加入它的頻道；播放清單連結會當成一部劇。",
+    "urlPlaceholder": "https://www.youtube.com/@頻道名稱",
+    "topicPlaceholder": "選擇主題",
+    "topicRequired": "頻道需要先選主題",
+    "seriesTopic": "好劇（依集數排序）",
+    "tabAll": "全部（{{count}}）",
+    "tabEnabled": "已啟用（{{count}}）",
+    "tabDisabled": "未啟用（{{count}}）",
+    "empty": "還沒有來源。貼上連結新增，或用 CLI 的 import-subs 匯入訂閱。",
+    "kindChannel": "頻道",
+    "kindPlaylist": "劇集",
+    "enabled": "啟用",
+    "deleteTitle": "刪除「{{title}}」？",
+    "deleteBody": "已抓到的影片紀錄也會一起刪除。YouTube 上的播放清單不會被刪除。",
+    "added": "已新增「{{title}}」",
+    "deleted": "已刪除",
+    "errors": {
+      "invalid_url": "看不懂這個連結，請貼上 YouTube 頻道、影片或播放清單網址",
+      "not_found": "在 YouTube 上找不到這個頻道或播放清單",
+      "topic_required": "頻道需要先選主題",
+      "unauthorized": "登入已過期，請重新登入",
+      "generic": "發生錯誤：{{message}}"
+    },
+    "syncing": "正在同步 YouTube 訂閱…",
+    "syncedNoChange": "已和 YouTube 訂閱同步，沒有變動",
+    "synced": "已和 YouTube 訂閱同步：新增 {{added}}、取消 {{unsubscribed}}（其中 {{disabled}} 個已自動停用）",
+    "syncSkipped": "YouTube 沒有回傳任何訂閱，為了安全這次沒有變動。請確認連結的是爸媽的帳號。",
+    "syncError": "同步訂閱失敗：{{message}}",
+    "syncNow": "重新同步 YouTube 訂閱",
+    "unsubscribed": "已取消訂閱",
+    "manual": "手動加入",
+    "unsubscribedHint": "爸媽的帳號已取消訂閱這個頻道，所以自動停用了。"
+  },
+  "filters": {
+    "title": "篩選規則",
+    "description": "符合任一條規則的影片不會進入播放清單。改完先看右邊預覽，再儲存。",
+    "minDuration": "最短片長",
+    "minDurationHint": "{{minutes}} 分鐘以下（含）的影片一律不收，用來排除 Shorts。",
+    "minutes": "分鐘",
+    "excludeLive": "排除直播與首播",
+    "excludeLiveHint": "包含正在直播、即將直播，以及直播或首播的錄影。",
+    "keywords": "封鎖關鍵字",
+    "keywordsHint": "標題含有這些字的影片不收，英文不分大小寫。按 Enter 加入。",
+    "keywordPlaceholder": "例如：政論",
+    "unsaved": "有尚未儲存的變更",
+    "saved": "篩選規則已儲存",
+    "saveError": "儲存失敗：{{message}}"
+  },
+  "preview": {
+    "title": "預覽",
+    "description": "最近抓到的 {{count}} 支影片，套用目前（含未儲存）的規則。",
+    "kept": "保留 {{count}}",
+    "dropped": "排除 {{count}}",
+    "showDropped": "只看被排除的",
+    "showAll": "顯示全部",
+    "empty": "還沒有抓到影片。按右上角的更新按鈕跑一次。",
+    "reasons": {
+      "too_short": "太短（{{duration}}）",
+      "too_short_unknown": "片長不明",
+      "live": "直播／首播",
+      "blocked_keyword": "關鍵字：{{keyword}}"
+    }
+  },
+  "runs": {
+    "title": "執行紀錄",
+    "description": "每天清晨 5:00 自動執行；也可以按右上角的按鈕立即更新。",
+    "empty": "還沒有執行紀錄。",
+    "started": "開始時間",
+    "trigger": "觸發",
+    "status": "狀態",
+    "quota": "配額",
+    "result": "結果",
+    "triggerCron": "排程",
+    "triggerManual": "手動",
+    "statusRunning": "執行中",
+    "statusSuccess": "成功",
+    "statusPartial": "部分失敗",
+    "statusFailed": "失敗",
+    "fetched": "抓到 {{count}} 支影片",
+    "playlistChange": "{{title}}：+{{inserted}} −{{deleted}}",
+    "pending": "（{{count}} 項留到明天）",
+    "budgetExhausted": "今天的配額用完了，剩下的明天繼續。",
+    "running": "正在更新播放清單…",
+    "done": "更新完成：{{count}} 個播放清單",
+    "doneWithErrors": "更新完成，但有 {{count}} 個問題，請看執行紀錄",
+    "failed": "更新失敗：{{message}}",
+    "subscriptions": "訂閱：新增 {{added}}、取消 {{unsubscribed}}",
+    "timeExhausted": "這次執行時間到了，剩下的下次繼續（按立即更新或等明天清晨）。"
+  },
+  "common": {
+    "loading": "載入中…",
+    "loadError": "載入失敗：{{message}}"
+  }
+}

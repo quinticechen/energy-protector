@@ -1,0 +1,128 @@
+{
+  "app": {
+    "name": "Handpicked Admin",
+    "tagline": "Pick good videos for your family; YouTube playlists update every day"
+  },
+  "nav": {
+    "sources": "Sources",
+    "filters": "Filters",
+    "runs": "Run history"
+  },
+  "actions": {
+    "signIn": "Sign in with Google",
+    "signOut": "Sign out",
+    "runNow": "Update playlists now",
+    "save": "Save",
+    "reset": "Revert",
+    "add": "Add",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "removeKeyword": "Remove \"{{keyword}}\"",
+    "openOnYouTube": "Open on YouTube",
+    "language": "Change language"
+  },
+  "auth": {
+    "title": "Admin sign-in",
+    "description": "Only Google accounts on the admin list can use this.",
+    "notAdminTitle": "This account has no access",
+    "notAdminBody": "{{email}} is not on the admin list. Add it with the CLI's add-admin command, or sign in with another account.",
+    "error": "Sign-in failed: {{message}}"
+  },
+  "sources": {
+    "title": "Sources",
+    "description": "Only channels and series enabled here are picked for the playlists.",
+    "addTitle": "Add a source",
+    "addHint": "Paste a channel, video or playlist link. A video link adds its channel; a playlist link is treated as a drama series.",
+    "urlPlaceholder": "https://www.youtube.com/@channel",
+    "topicPlaceholder": "Choose a topic",
+    "topicRequired": "Choose a topic for this channel first",
+    "seriesTopic": "Drama (episode order)",
+    "tabAll": "All ({{count}})",
+    "tabEnabled": "Enabled ({{count}})",
+    "tabDisabled": "Disabled ({{count}})",
+    "empty": "No sources yet. Paste a link, or import subscriptions with the CLI's import-subs.",
+    "kindChannel": "Channel",
+    "kindPlaylist": "Series",
+    "enabled": "Enabled",
+    "deleteTitle": "Delete \"{{title}}\"?",
+    "deleteBody": "Its fetched videos are deleted too. The playlist on YouTube is kept.",
+    "added": "Added \"{{title}}\"",
+    "deleted": "Deleted",
+    "errors": {
+      "invalid_url": "That link isn't a YouTube channel, video or playlist",
+      "not_found": "No such channel or playlist on YouTube",
+      "topic_required": "Choose a topic for this channel first",
+      "unauthorized": "Your session expired; sign in again",
+      "generic": "Something went wrong: {{message}}"
+    },
+    "syncing": "Syncing YouTube subscriptions…",
+    "syncedNoChange": "In sync with YouTube subscriptions; no changes",
+    "synced": "Synced with YouTube: {{added}} added, {{unsubscribed}} unsubscribed ({{disabled}} switched off)",
+    "syncSkipped": "YouTube returned no subscriptions, so nothing changed for safety. Check that the linked account is your parents'.",
+    "syncError": "Subscription sync failed: {{message}}",
+    "syncNow": "Sync YouTube subscriptions again",
+    "unsubscribed": "Unsubscribed",
+    "manual": "Added manually",
+    "unsubscribedHint": "Your parents' account unsubscribed from this channel, so it was switched off."
+  },
+  "filters": {
+    "title": "Filters",
+    "description": "Videos matching any rule stay out of the playlists. Check the preview before saving.",
+    "minDuration": "Minimum length",
+    "minDurationHint": "Videos of {{minutes}} minutes or less are dropped, which removes Shorts.",
+    "minutes": "min",
+    "excludeLive": "Exclude live streams and premieres",
+    "excludeLiveHint": "Covers live, upcoming, and recordings of past streams or premieres.",
+    "keywords": "Blocked keywords",
+    "keywordsHint": "Videos whose title contains one of these are dropped (case-insensitive). Press Enter to add.",
+    "keywordPlaceholder": "e.g. politics",
+    "unsaved": "Unsaved changes",
+    "saved": "Filters saved",
+    "saveError": "Could not save: {{message}}"
+  },
+  "preview": {
+    "title": "Preview",
+    "description": "The {{count}} most recently fetched videos, using the current (including unsaved) rules.",
+    "kept": "Kept {{count}}",
+    "dropped": "Dropped {{count}}",
+    "showDropped": "Dropped only",
+    "showAll": "Show all",
+    "empty": "No videos fetched yet. Use the update button at the top right.",
+    "reasons": {
+      "too_short": "Too short ({{duration}})",
+      "too_short_unknown": "Unknown length",
+      "live": "Live / premiere",
+      "blocked_keyword": "Keyword: {{keyword}}"
+    }
+  },
+  "runs": {
+    "title": "Run history",
+    "description": "Runs automatically at 5:00 every morning; use the button at the top right to update now.",
+    "empty": "No runs yet.",
+    "started": "Started",
+    "trigger": "Trigger",
+    "status": "Status",
+    "quota": "Quota",
+    "result": "Result",
+    "triggerCron": "Scheduled",
+    "triggerManual": "Manual",
+    "statusRunning": "Running",
+    "statusSuccess": "Success",
+    "statusPartial": "Partial",
+    "statusFailed": "Failed",
+    "fetched": "Fetched {{count}} videos",
+    "playlistChange": "{{title}}: +{{inserted}} −{{deleted}}",
+    "pending": " ({{count}} left for tomorrow)",
+    "budgetExhausted": "Today's quota ran out; the rest continues tomorrow.",
+    "running": "Updating playlists…",
+    "done": "Updated {{count}} playlists",
+    "doneWithErrors": "Updated, with {{count}} problems; see run history",
+    "failed": "Update failed: {{message}}",
+    "subscriptions": "Subscriptions: +{{added}} −{{unsubscribed}}",
+    "timeExhausted": "This run ran out of time; the rest continues next run (update now, or tomorrow morning)."
+  },
+  "common": {
+    "loading": "Loading…",
+    "loadError": "Could not load: {{message}}"
+  }
+}
