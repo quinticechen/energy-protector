@@ -72,7 +72,7 @@
     "minDurationHint": "{{minutes}} 分鐘以下（含）的影片一律不收，用來排除 Shorts。",
     "minutes": "分鐘",
     "excludeLive": "排除直播與首播",
-    "excludeLiveHint": "包含正在直播、即將直播，以及直播或首播的錄影。",
+    "excludeLiveHint": "包含正在直播、即將直播，以及直播或首播的錄影。個別主題可以在下方「主題規則」改為保留錄影。",
     "keywords": "封鎖關鍵字",
     "keywordsHint": "標題含有這些字的影片不收，英文不分大小寫。按 Enter 加入。",
     "keywordPlaceholder": "例如：政論",
@@ -93,7 +93,9 @@
       "too_short_unknown": "片長不明",
       "live": "直播／首播",
       "blocked_keyword": "關鍵字：{{keyword}}"
-    }
+    },
+    "allTopics": "全部主題",
+    "topicFilter": "預覽的主題"
   },
   "runs": {
     "title": "執行紀錄",
@@ -124,5 +126,29 @@
   "common": {
     "loading": "載入中…",
     "loadError": "載入失敗：{{message}}"
+  },
+  "topicRules": {
+    "title": "主題規則",
+    "description": "每個主題可以覆寫上面的全域規則，例如讓「命理」不封鎖「算命」。劇集（好劇）一律用全域規則。",
+    "topic": "要調整的主題",
+    "customized": "已自訂",
+    "inherit": "用全域",
+    "customizedList": "已自訂的主題：{{names}}",
+    "noneCustomized": "目前所有主題都用全域規則。",
+    "minDuration": "自訂最短片長",
+    "minDurationGlobal": "目前用全域設定：{{minutes}} 分鐘",
+    "liveRecordings": "保留直播與首播的錄影",
+    "liveRecordingsHint": "正在直播和即將直播的影片仍然不收。",
+    "liveRecordingsNoEffect": "全域規則沒有排除直播，這個設定目前不影響結果。",
+    "allowedKeywords": "這個主題不套用的封鎖字",
+    "allowedKeywordsHint": "點一下切換。劃掉的字在這個主題不會被封鎖。",
+    "noGlobalKeywords": "全域沒有封鎖字。",
+    "keywordToggle": "「{{keyword}}」在這個主題{{state}}",
+    "keywordBlocked": "會被封鎖",
+    "keywordAllowed": "不封鎖",
+    "extraKeywords": "這個主題額外封鎖",
+    "extraKeywordsHint": "只在這個主題生效。",
+    "resetTopic": "恢復成全域規則",
+    "saved": "規則已儲存"
   }
 }

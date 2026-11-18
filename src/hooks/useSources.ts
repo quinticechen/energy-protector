@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { FunctionsHttpError } from "@supabase/supabase-js";
 import type { SubscriptionSyncSummary } from "@shared/subscriptionSync.ts";
 import type { Source, Topic } from "@shared/types.ts";
+import { topicFromRow } from "@shared/restStore.ts";
 import { supabase } from "@/lib/supabase";
 
 const SOURCES_KEY = ["sources"] as const;
@@ -11,9 +12,9 @@ export function useTopics() {
     queryKey: ["topics"],
     staleTime: Infinity,
     queryFn: async (): Promise<Topic[]> => {
-      const { data, error } = await supabase.from("topics").select("slug, name, sort").order("sort");
+      const { data, error } = await supabase.from("topics").select("*").order("sort");
       if (error) throw error;
-      return data;
+      return data.map(topicFromRow);
     },
   });
 }

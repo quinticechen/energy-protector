@@ -72,7 +72,7 @@
     "minDurationHint": "Videos of {{minutes}} minutes or less are dropped, which removes Shorts.",
     "minutes": "min",
     "excludeLive": "Exclude live streams and premieres",
-    "excludeLiveHint": "Covers live, upcoming, and recordings of past streams or premieres.",
+    "excludeLiveHint": "Covers live, upcoming, and recordings of past streams or premieres. A topic can keep recordings under Topic rules below.",
     "keywords": "Blocked keywords",
     "keywordsHint": "Videos whose title contains one of these are dropped (case-insensitive). Press Enter to add.",
     "keywordPlaceholder": "e.g. politics",
@@ -93,7 +93,9 @@
       "too_short_unknown": "Unknown length",
       "live": "Live / premiere",
       "blocked_keyword": "Keyword: {{keyword}}"
-    }
+    },
+    "allTopics": "All topics",
+    "topicFilter": "Topic to preview"
   },
   "runs": {
     "title": "Run history",
@@ -124,5 +126,29 @@
   "common": {
     "loading": "Loading…",
     "loadError": "Could not load: {{message}}"
+  },
+  "topicRules": {
+    "title": "Topic rules",
+    "description": "Each topic can override the global rules above, e.g. let 命理 keep videos about 算命. Series always use the global rules.",
+    "topic": "Topic to adjust",
+    "customized": "Customized",
+    "inherit": "Global",
+    "customizedList": "Customized topics: {{names}}",
+    "noneCustomized": "All topics use the global rules.",
+    "minDuration": "Custom minimum length",
+    "minDurationGlobal": "Using the global setting: {{minutes}} min",
+    "liveRecordings": "Keep recordings of live streams and premieres",
+    "liveRecordingsHint": "Videos that are live now or upcoming are still dropped.",
+    "liveRecordingsNoEffect": "The global rules don't exclude live streams, so this has no effect right now.",
+    "allowedKeywords": "Global keywords not applied to this topic",
+    "allowedKeywordsHint": "Click to toggle. Struck-through keywords are not blocked in this topic.",
+    "noGlobalKeywords": "There are no global blocked keywords.",
+    "keywordToggle": "\"{{keyword}}\" {{state}} in this topic",
+    "keywordBlocked": "is blocked",
+    "keywordAllowed": "is not blocked",
+    "extraKeywords": "Extra keywords blocked in this topic",
+    "extraKeywordsHint": "Only applies to this topic.",
+    "resetTopic": "Reset to the global rules",
+    "saved": "Rules saved"
   }
 }

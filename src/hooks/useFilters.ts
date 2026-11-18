@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { normalizeKeywords } from "@shared/filters.ts";
-import type { FilterSettings } from "@shared/types.ts";
+import type { FilterSettings, TopicFilterRules } from "@shared/types.ts";
 import { supabase } from "@/lib/supabase";
 
 const FILTERS_KEY = ["filters"] as const;
@@ -39,5 +39,27 @@ export function useSaveFilters() {
       if (error) throw error;
     },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: FILTERS_KEY }),
+  });
+}
+
+/** Saves the per-topic overrides of the given topics. */
+export function useSaveTopicRules() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (changes: { slug: string; rules: TopicFilterRules }[]) => {
+      for (const { slug, rules } of changes) {
+        const { error } = await supabase
+          .from("topics")
+          .update({
+            min_duration_seconds: rules.minDurationSeconds,
+            allow_live_recordings: rules.allowLiveRecordings,
+            allowed_keywords: normalizeKeywords(rules.allowedKeywords),
+            extra_blocked_keywords: normalizeKeywords(rules.extraBlockedKeywords),
+          })
+          .eq("slug", slug);
+        if (error) throw error;
+      }
+    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["topics"] }),
   });
 }

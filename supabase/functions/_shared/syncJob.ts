@@ -1,4 +1,4 @@
-import { evaluateVideo } from "./filters.ts";
+import { evaluateVideo, filtersBySource } from "./filters.ts";
 import {
   addDays,
   dateInTimeZone,
@@ -165,7 +165,8 @@ export async function runSync({ yt, store, now, timeZone, quotaBudget, timeBudge
   const stored = failedSourceIds.length > 0 ? await store.getVideos(failedSourceIds) : [];
 
   // 2. Filter and plan.
-  const kept = [...fresh, ...stored].filter((video) => evaluateVideo(video, filters).kept);
+  const filtersFor = filtersBySource(filters, sources, topics);
+  const kept = [...fresh, ...stored].filter((video) => evaluateVideo(video, filtersFor(video.sourceId)).kept);
   const today = dateInTimeZone(now, timeZone);
   const recentlyPicked = new Set(await store.getDailyPicks(addDays(today, -DAILY_NO_REPEAT_DAYS), addDays(today, -1)));
   const plans = planPlaylists({ sources, topics, kept, recentlyPicked, now });

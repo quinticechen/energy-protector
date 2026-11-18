@@ -49,6 +49,8 @@ CLI (Node): one-time OAuth link, import subscriptions
 
 ## Filters (editable in the UI)
 
+Global rules live in the single `filter_settings` row; the defaults are in the init
+migration and `DEFAULT_FILTERS` (`supabase/functions/_shared/filters.ts`).
 A video is dropped if any rule matches:
 
 1. Duration ≤ minimum (default 180 s, so "3 分鐘以下" includes exactly 3:00 Shorts).
@@ -57,6 +59,22 @@ A video is dropped if any rule matches:
 
 No maximum length. Filters are evaluated at selection time, so changing a filter also
 removes already-listed videos on the next run.
+
+### Topic rules
+
+Each topic (columns on `topics`, edited under 篩選規則 → 主題規則) can override the
+global rules for its channels:
+
+| Override | Effect |
+| --- | --- |
+| `min_duration_seconds` | Own minimum length; null = global |
+| `allow_live_recordings` | Keep recordings of past live streams / premieres; live-now and upcoming stay dropped |
+| `allowed_keywords` | Global blocked keywords that do not apply to this topic |
+| `extra_blocked_keywords` | Keywords blocked only in this topic |
+
+`effectiveFilters()` merges them; the daily job and the UI preview use the same function.
+Drama series (好劇) have no topic and always use the global rules. Example: 命理 keeps
+簡少年's monthly forecasts, which are live-stream recordings with 算命 in the title.
 
 ## Playlists
 

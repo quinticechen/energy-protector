@@ -10,7 +10,7 @@ import {
   type VideoDetails,
   type YouTubeApi,
 } from "../supabase/functions/_shared/youtubeClient.ts";
-import { DEFAULT_FILTERS } from "../supabase/functions/_shared/filters.ts";
+import { DEFAULT_FILTERS, NO_TOPIC_RULES } from "../supabase/functions/_shared/filters.ts";
 
 export interface FakeVideo extends VideoDetails {
   channelId: string;
@@ -138,8 +138,8 @@ export class FakeStore implements SyncStore, SubscriptionStore {
   filters: FilterSettings = { ...DEFAULT_FILTERS, blockedKeywords: [...DEFAULT_FILTERS.blockedKeywords] };
   sources: Source[] = [];
   topics: Topic[] = [
-    { slug: "health", name: "健康", sort: 1 },
-    { slug: "travel", name: "旅遊", sort: 2 },
+    { slug: "health", name: "健康", sort: 1, rules: { ...NO_TOPIC_RULES } },
+    { slug: "travel", name: "旅遊", sort: 2, rules: { ...NO_TOPIC_RULES } },
   ];
   videos = new Map<string, VideoRecord>();
   managed: ManagedPlaylist[] = [];

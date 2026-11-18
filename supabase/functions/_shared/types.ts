@@ -11,12 +11,26 @@ export interface FilterSettings {
   minDurationSeconds: number;
   excludeLive: boolean;
   blockedKeywords: string[];
+  /** Keep recordings of past live streams / premieres (only set through topic rules). */
+  allowLiveRecordings?: boolean;
+}
+
+/** A topic's overrides of the global filters. */
+export interface TopicFilterRules {
+  /** null = use the global minimum. */
+  minDurationSeconds: number | null;
+  allowLiveRecordings: boolean;
+  /** Global blocked keywords that do not apply to this topic. */
+  allowedKeywords: string[];
+  /** Keywords blocked only in this topic. */
+  extraBlockedKeywords: string[];
 }
 
 export interface Topic {
   slug: string;
   name: string;
   sort: number;
+  rules: TopicFilterRules;
 }
 
 export interface Source {

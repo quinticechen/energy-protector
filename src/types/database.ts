@@ -168,16 +168,28 @@ export type Database = {
       }
       topics: {
         Row: {
+          allow_live_recordings: boolean
+          allowed_keywords: string[]
+          extra_blocked_keywords: string[]
+          min_duration_seconds: number | null
           name: string
           slug: string
           sort: number
         }
         Insert: {
+          allow_live_recordings?: boolean
+          allowed_keywords?: string[]
+          extra_blocked_keywords?: string[]
+          min_duration_seconds?: number | null
           name: string
           slug: string
           sort?: number
         }
         Update: {
+          allow_live_recordings?: boolean
+          allowed_keywords?: string[]
+          extra_blocked_keywords?: string[]
+          min_duration_seconds?: number | null
           name?: string
           slug?: string
           sort?: number

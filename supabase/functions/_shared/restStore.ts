@@ -27,6 +27,30 @@ interface VideoRow {
   series_position: number | null;
 }
 
+export interface TopicRow {
+  slug: string;
+  name: string;
+  sort: number;
+  min_duration_seconds: number | null;
+  allow_live_recordings: boolean;
+  allowed_keywords: string[];
+  extra_blocked_keywords: string[];
+}
+
+export function topicFromRow(row: TopicRow): Topic {
+  return {
+    slug: row.slug,
+    name: row.name,
+    sort: row.sort,
+    rules: {
+      minDurationSeconds: row.min_duration_seconds,
+      allowLiveRecordings: row.allow_live_recordings,
+      allowedKeywords: row.allowed_keywords,
+      extraBlockedKeywords: row.extra_blocked_keywords,
+    },
+  };
+}
+
 export function sourceFromRow(row: SourceRow): Source {
   return {
     id: row.id,
@@ -117,7 +141,8 @@ export function createRestStore(options: { url: string; serviceKey: string; fetc
     },
 
     async getTopics(): Promise<Topic[]> {
-      return request<Topic[]>("GET", "topics?select=slug,name,sort&order=sort");
+      const rows = await request<TopicRow[]>("GET", "topics?select=*&order=sort");
+      return rows.map(topicFromRow);
     },
 
     async getVideos(sourceIds) {
